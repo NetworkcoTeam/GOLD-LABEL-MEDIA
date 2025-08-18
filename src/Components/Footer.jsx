@@ -104,7 +104,7 @@ function Footer() {
           {/* Newsletter */}
           <div className="backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-black transition-transform duration-300 hover:scale-105 border-2 border-yellow-600">
             <h3 className="text-lg font-semibold text-yellow-500 mb-4">Newsletter</h3>
-            <p className="text-white mb-4">Subscribe for updates on new courses and promotions</p>
+            <p className="text-white mb-4">Subscribe for updates on our projects</p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
