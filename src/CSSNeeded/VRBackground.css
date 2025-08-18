@@ -1,0 +1,93 @@
+/* Import Gotham font (ensure you have the font files or a license) */
+/* If using a CDN or local files, adjust the paths below */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Book.woff2') format('woff2'),
+       url('/fonts/Gotham-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Bold.woff2') format('woff2'),
+       url('/fonts/Gotham-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Fallback fonts if Gotham is unavailable */
+.font-gotham {
+  font-family: 'Gotham', 'Montserrat', 'Poppins', sans-serif;
+}
+
+/* VR Background Animation: black to gray-600 loop */
+.vr-background {
+  background: linear-gradient(
+    45deg,
+    #000000 0%,     /* black */
+    #1f2937 25%,    /* gray-800 */
+    #374151 50%,    /* gray-700 */
+    #4b5563 75%,    /* gray-600 */
+    #000000 100%    /* back to black */
+  );
+  background-size: 400% 400%;
+  animation: gradientShiftGray 20s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+/* Gradient animation between shades */
+@keyframes gradientShiftGray {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Particle layer for subtle VR sparkle effect */
+.particle-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#glow)"><circle cx="10%" cy="20%" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="80%" cy="30%" r="1.5" fill="rgba(0,255,255,0.2)"/><circle cx="50%" cy="70%" r="2.5" fill="rgba(255,0,122,0.25)"/><circle cx="30%" cy="50%" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="90%" cy="80%" r="2" fill="rgba(0,255,255,0.3)"/></g></svg>') repeat;
+  animation: particleFloat 20s linear infinite;
+  opacity: 0.3;
+}
+
+/* Floating particles */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+/* Ensure section content stays above particle layer */
+section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Readable text on dark background */
+h1, h2, p {
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional subtle VR pulse effect */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+}
