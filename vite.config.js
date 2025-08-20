@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/GOLD-LABEL-MEDIA/', // GitHub Pages base path
+  base: './',  // ✅ use relative paths on Render
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
